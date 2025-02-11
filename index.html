@@ -74,10 +74,33 @@
     }
     
 </style>
-
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const audio = document.getElementById("bg-music");
+        const muteBtn = document.getElementById("mute-btn");
+        audio.oncanplaythrough = function() {
+            console.log("Audio is ready to play!");
+            audio.muted = false;
+        };
+        muteBtn.addEventListener("click", function () {
+            if (audio) {
+                audio.muted = !audio.muted;
+                if (audio.muted) {
+                    muteBtn.textContent = "🔊";
+                } else {
+                    muteBtn.textContent = "🔇";
+                }
+                console.log("Audio muted status:", audio.muted);
+            }
+        });
+    });
+</script>
 <section id="work-experience">
     <div class="container">
      <h1>My Professional Career and Experiences</h1>
+    <div>      
+    <span id="mute-btn" style="cursor: pointer; font-size: 24px;">🔇</span>
+    </div> 
         <p>With a robust career spanning various leadership roles in security and loss prevention, I bring a wealth of experience in safeguarding assets, ensuring operational resilience, and managing large-scale security operations. My expertise lies in risk assessment, strategic security planning, and crisis management, making me a key player in strengthening corporate security frameworks across multiple industries.</p>
         <p>I have held pivotal roles such as Corporate Security Assistant Manager at Aseana Real Estate Services and Management, Physical Security Lead for Provincial Operations at Teleperformance Philippines, and General Manager at Detectnet Security Agency Corporation, where I successfully led security initiatives, optimized resource allocation, and ensured compliance with industry standards. My leadership extended to overseeing security teams, mitigating threats, and implementing security measures that enhanced organizational safety.</p>
         <p>As a Security and Safety Assessor and Consultant, I have provided expert insights and tailored security solutions for various businesses, leveraging my extensive background in security operations, personnel training, and risk mitigation. My tenure with leading logistics firms such as Airfreight2100 Inc. and Entrego Express Corporation further solidified my ability to secure supply chain operations and protect critical assets.</p>
@@ -194,6 +217,10 @@
             <a href="https://jmacaambac.github.io/mywebprofile/" class="home-button">Home</a>
             <div>
         <img src="JPM Logo2.png" class="logo" alt="My Logo" style="width: 100px;  display: inline-block;">
-    </div> 
+    </div>
+     <audio id="bg-music" autoplay loop>
+    <source src="myworkspeech.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+     </audio>
 </section>
    
